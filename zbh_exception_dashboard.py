@@ -590,8 +590,7 @@ with tab2:
     if not matrix.empty:
         matrix["Total"] = matrix.sum(axis=1)
         matrix = matrix.sort_values("Total", ascending=False)
-        st.dataframe(matrix.style.highlight_max(axis=None, color="rgba(248,81,73,0.3)"),
-                     use_container_width=True)
+        st.dataframe(matrix, use_container_width=True)
 
 
 # ════════════════════════════════════════════════════════════════════════════
@@ -671,8 +670,7 @@ with tab3:
             wow_pct.columns = ["W-1→W-2","W-2→W-3","W-3→W-4"][:len(wow_pct.columns)]
             if not wow_pct.empty:
                 st.dataframe(
-                    wow_pct.style.format("{:.1f}%")
-                    .background_gradient(cmap="RdYlGn", axis=None, vmin=-50, vmax=50),
+                    wow_pct.style.format("{:.1f}%"),
                     use_container_width=True,
                     height=min(400, 38 + len(wow_pct) * 35),
                 )
