@@ -590,7 +590,7 @@ with tab2:
     if not matrix.empty:
         matrix["Total"] = matrix.sum(axis=1)
         matrix = matrix.sort_values("Total", ascending=False)
-        st.dataframe(matrix.style.background_gradient(cmap="Reds", axis=None),
+        st.dataframe(matrix.style.highlight_max(axis=None, color="rgba(248,81,73,0.3)"),
                      use_container_width=True)
 
 
